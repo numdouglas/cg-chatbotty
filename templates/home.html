@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <title>Fintech Assistant</title>
+  <head>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="static/boticon.png"
+    />
+	</head>
+	<link rel="stylesheet" type="text/css" href="static/botthema.css">
+	<link href="https://fonts.googleapis.com/css?family=Audiowide|Comfortaa|Snowburst+One&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
+  
+  <body>
+  <img class="open-button" onclick="openForm()" src='static/speech-balloon.svg'></img>
+
+<div class="chat-popup" id="myForm">
+  <form action="submit" class="form-container">
+  <img />
+    <center>
+      <h1>
+        <img
+          src="static/boticon.png"
+          alt="FIN"
+          style="width:40px;height:40px;"
+        />Fintech</br>ChatBot
+      </h1>
+    </center>
+   
+    <div class="box"></div>
+    <div class="boxed">
+      <div class="inputspanel">
+        <div id="chatbox">
+
+          <p class="botText">
+            <span><img src="static/boticon.png" height="64x" width="32px"/>Hi! I am your representative. Ask me anything Fintech.co.</span>
+          </p>
+        </div>
+        <div id="userInput">
+          <img src="static/userr.png" height="64x" width="32px"/><textarea id="textInput" placeholder="Talk to me.." name="msg" required></textarea>		  
+        </div>
+      </div>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+
+  
+      <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var random_time =(Math.round(Math.random() * 5))*1000;
+          var userHtml = '<p class="userText"><span><img src="static/userr.png" height="64x" width="32px"/>' + rawText + "</span></p>";
+		  var typing_status='<p7>.&middot.&middot.&middot.&middot.&middot.<span>&nbsp;</span></p7>'
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+          $.get("http://10.100.0.177:8081/process", { message: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span><img src="static/boticon.png" height="64x" width="32px"/>' + data + "</span></p>";
+           
+            $("#chatbox").append(typing_status);
+      setTimeout(function() { $("p7").remove();
+      $("#chatbox").append(botHtml);
+      document
+              .getElementById("userInput")
+              .scrollIntoView({ block: "start", behavior: "smooth" }); },random_time);
+          });
+        }
+        $("#textInput").keypress(function(e) {
+          if (e.which == 13) {
+            getBotResponse();
+          }
+        });
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+</script>
+      </script>
+    </div>
+  </body>
+</html>

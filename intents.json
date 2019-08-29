@@ -1,0 +1,132 @@
+{"intents": [
+        {"tag": "greeting",
+         "question_patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day","What's up"],
+         "responses": ["Hello, thanks for visiting Fintech", "Hello too, we are Fintech, how may we help", "Hi there, how can I help?"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "question_patterns": ["Bye", "ok , thanks goodbye" ,"See you later", "Goodbye"],
+         "responses": ["See you later, thanks", "Have a nice day", "Bye! Come back again soon."]
+        ,"context_set": ""},
+        {"tag": "thanks",
+         "question_patterns": ["Thanks","Ok, thanks", "Thank you", "That's helpful"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"]
+        },
+        {"tag": "hours",
+         "question_patterns": ["What hours are you open?", "What are your hours?", "When are you open?" ],
+         "responses": ["We're open every day 9am-9pm", "Our hours are 9am-9pm every day"]
+        },
+        {"tag": "services",
+         "question_patterns": ["services you offer", "I need help", "what fintech offers","sorted out","do you have","do you do" ],
+         "responses": ["Hi. You can choose from a comprehensive list of services. We offer payments and settlements, software maintenance and testing,software security, consulting services, core banking, e-banking,  finfinancials and enterprise solutions"]
+        },
+		
+		
+		{"tag":"get_info",
+		"question_patterns":["tell me about fintech","what is fintech kenya","who are you"],
+		"responses":["We are Fintech Kenya,started in the mid 80's, we aim to provide our clients with the most effective solutions to empower them better serve their customers.","Fintech is a multinational company that aims for providing the true system integrators and therefore bridge the gap between business and technology"],
+		"context_set":"more info"},
+		
+		
+		{"tag":"get_services",
+		"question_patterns":["what do you deal in","what fields do you deal in","what are your services","what services do you offer","what are your solutions","what do you provide","tell me more about","what is","explain about"],
+		"responses":["we provide seven main solutions; Finfinancials ,Ebanking ,Enterprise solutions ,Payments, Clearing and Settlement ,Information Security and Value Addition ,Core Banking  and finally, Consulatncy"]},
+
+		{"tag":"finfinancials",
+		"question_patterns":["tell me about finfinancials","explain finfinancials","what is finfinancials","need more information on finfinancials","to know about finfinancials"],
+		"responses":["These are specialised in-house enterprise solutions that are designed to automate end-to-end functionalities of financial institutions e.g. Finsacco for Sacco, finMFI for Microfinances, Leasepac for Leasing companies, FinMortgage for Mortgage companies etc.  Finfinancials modules can also be integrated with other applications as third party modules to meet specific functionalities in an organisation e.g. CRB and MIS reporting, Credit workflow, Insurance Premium financing, Debt management etc. Do you need our services on this module?"],
+		"context_set":"finfinancials_transaction"},
+		{"tag":"fins_trans",
+		"question_patterns":["yes","yep","yeah","ok","i do","yes let's"],
+		"responses":["please call this hotline to access our consultant 089-23-3344-67 or send a mail to fintechFinancials@group.com to access FinFinancial services"],
+		"context_filter":"finfinancials_transaction"},
+		{"tag":"Ebanking",
+		"question_patterns":["tell me about ebanking","explain ebanking","what is ebanking","need more information on ebanking","to know about ebanking"],
+		"responses":["E-Banking suite of products are robust and flexible mobility solutions for financial institutions that integrates with all known core banking solutions e.g. Oracle Flexcube, T24, Mysis etc. These solutions include; finBridge, finSMS(SMS Banking), finMobile, finIB(Internet Banking), finISecure(Biometrics) Security and Postilion Switch."],
+		"context_set":"ebanking_transaction"},
+		{"tag":"e_trans",
+		"question_patterns":["yes","yep","yeah","ok","i do","yes let's"],
+		"responses":["please call this hotline to access our consultant 345-237-00-07 or send a mail to fintechEbank@group.com to access E-Banking services"],
+		"context_filter":"ebanking_transaction"},
+		
+		
+		{"tag":"EntSolutions",
+		"question_patterns":["tell me about enterprise solutions","explain enterprise solutions","what is enterprise solutions","need more information on enterprise solutions","to know about enterprise solutions"],
+		"responses":["Fintech is a Microsoft Gold Certified Partner. We are among the elite of Microsoft’s business partners, earning their highest endorsement. We have the knowledge, skills and commitment to help you implement technology solutions that match your exact business needs. These solutions include; Microsoft Dynamics AX and Customer Relationship Management system; Electronic Content Management systems; Collaboration Solutions; Contact center solutions; High Availability and data protection; WAN optimization. Is this the service you require?"],
+		"context_set":"ent_transaction"},
+		{"tag":"ent_trans",
+		"question_patterns":["yes","yep","yeah","ok","i do","yes let's"],
+		"responses":["please call this hotline to access our consultant 34-111-000-111 or send a mail to fintechEnterpirse@group.com to access Enterprise solutions"],
+		"context_filter":"ent_transaction"},
+		
+		
+		{"tag":"payments_n_clearing",
+		"question_patterns":["tell me about payments clearing settlement","explain payments clearing settlement","what is payments clearing settlement","need more information on payments clearing settlement","to know about payments clearing settlement"],
+		"responses":["Fintech has a robust, secure and scalable automated clearing, truncation and settlement solution called Chequepoint. This solution integrates seamlessly with core banking systems and the central clearing systems hosted by the central/reserve banks, it is truncation ready, agnostic to scanners and is customized to meet set clearing and payment guidelines for different markets. Chequepoint is currently deployed in over 60 banks across Africa i.e. Kenya, Tanzania, Uganda, Malawi, Ethiopia, Mauritius and Seychelles. Is this the service you require?"],
+		"context_set":"clearing_transaction"},
+		{"tag":"clearing_trans",
+		"question_patterns":["yes","yep","yeah","ok","i do","yes let's"],
+		"responses":["please call this hotline to access our consultant 123-879-456-999 or send a mail to fintechEnterpirse@group.com to access E-Banking services"],
+		"context_filter":"clearing_transaction"},
+
+		{"tag":"soft_issues",
+		"question_patterns":["software issues", "program has bugs","program has errors","experiencing a problem with","have issues","experiencing issues with"],
+		"responses":["okay, we need to establish the category of software issues, is it performance issues or exceptions?", "please choose one among performance problems and errors"]}
+		,
+		
+		{"tag":"soft_issues_response_errors",
+		"question_patterns":["i have errors","option 2","it's an exception","an exception"],
+		"responses":["please read the log message displayed on the package console: is it ending with HARD or SOFT?","does the log message displayed contain HARD or SOFT at the ending?"],
+		"context_set":"error_finder"},
+		{"tag":"soft_issues_response_hard",
+		"question_patterns":["reads hard","hard","ends with hard","it's hard"],
+		"responses":["Hello, this is a fatal crash. We can work together to solve it. Did you install the program with the antivirus on?"],
+		"context_filter":"error_finder"},
+		{"tag":"soft_issues_response_soft_antivirus",
+		"question_patterns":["yes","yep","yeah","positive"],
+		"responses":["This would mean a rule has been set against some components of the product running. Navigate to Control Panel->Security->Firewall->Administator tab and set a new rule. Paste this code ##-232#% to add a rule and restart the program"],
+		"context_filter":"error_finder"},
+		{"tag":"soft_issues_response_noantivirus",
+		"question_patterns":["negative","no","nope"],
+		"responses":["Move to file and click on run diagnostic with Windows."],
+		"context_filter":"error_finder"},
+
+		
+		{"tag":"bug_per",
+		"question_patterns":["a performance issue","performance issue","its a performance issue", "it is a performance issue"],
+		"responses":["Click on start then move to control panel, are you there?","Are you at Control Panel window? please go to start->control panel and respond..."],
+		"context_set":"per_troubleshoot"},
+		{"tag":"bug_resolve_affirmed",
+		"question_patterns":["yes i am ","it's open","yes","yeah"],
+		"responses":["click on overclock->for finfinancials->clear cache, performance should improve on next reboot","Nice, now click overclock, and then finfinancials. Clear the cache and agree to reboot"],
+		"context_filter":"per_troubleshoot"},
+
+		
+		
+        {"tag": "payments",
+         "question_patterns": ["Do you take credit cards?", "Do you accept Mastercard?", "Are you cash only?" ],
+         "responses": ["We accept VISA, Mastercard and AMEX", "We accept most major credit cards"],
+         "context_set":"payee"
+        },
+        {"tag": "transaction",
+         "question_patterns": ["I need consultancy", "how much will I pay for consultancy","i need one of your consultants"],
+         "responses": ["Consultancy services will cost you in the range of kes 0.07-1 million","At least kes 700,000; payments via kenswitch guarantee a 5% discount"],
+         "context_filter":"payee"
+        },
+        {"tag": "opentoday",
+         "question_patterns": ["Are you open today?", "When do you open today?", "What are your hours today?"],
+         "responses": ["We're open every day from 9am-9pm", "Our hours are 9am-9pm every day"]
+        },
+        {"tag": "departments",
+         "question_patterns": ["Can I know about Fintech?", "What is the structure of the organisation?", "Enlighten me","How departments"],
+         "responses": ["Fintech has 2 departments; Finfinancials and Ebanking"]},
+		 
+		 {"tag": "location_question",
+         "question_patterns": ["Where are you located?", "Where can I find you?", "I want to tour fintech", "I want to visit you", "What is your physical location?","How close near are you?"],
+         "responses": ["Fintech KE is at AM Bank Hse near Annniversary towers", "Find us at Loita street Am Bank House floor 16", "We're located at the 16th floor of AmBank house"]
+        },
+		 {"tag": "management_structure",
+         "question_patterns": ["May I know the Hierachy?", "I want to know about the management structure", "Who manages Fintech", "Who is the CEO of Fintech"],
+         "responses": ["This is the top Hierachy of Fintech KE CEO(Adam Leasepac)->GM(Isaac Wakhisi)->PM(Joshua Gitaari)", "Adam Leasepac is the CEO, the GM(Isaac) reports to him and he inturn directly delegates to Joshua, the Product Manager"]
+        }
+		 ]}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>Friend Chatbot</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+<div id='usr_in' class="container">
+	<div class="alert alert-primary" role="alert">
+      <img src="static/userr.png" height="64x" width="32px"/>User: {{user_input}}
+</div>
+<div id='bot_out' class="alert alert-dark" role="alert">
+ <img src="static/boticon.png" height="64x" width="32px"/> Broot: {{bot_response}}
+</div>
+<chat_log></chat_log>
+
+
+	<form  action="/process" method="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Fintech Chatbot</label>
+    <input type="text" name="user_input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Talk to Fintech Assistant"><br>
+  <button type="submit" class="btn btn-primary">Send</button>
+</form>
+</div>
+</body>
+</html>
+
+<!--
+<script>
+  const messages = document.getElementsByClassName('alert');
+  var into=0;
+ function appendMessage() {
+    into++;
+    const user_message = document.getElementsByClassName('alert')[0];
+     // console.log(message);
+      const newMessage = user_message.cloneNode(true);
+      $('chat_log').append('<div class="alert alert-primary" role="alert"><img src="static/userr.png" height="64x" width="32px"/>'+into+'User: {{user_input}}</div>');
+    }
+    
+    function getMessages() {
+      // Prior to getting your messages.
+      shouldScroll = messages.scrollTop + messages.clientHeight === messages.scrollHeight;
+      /*
+       * Get your messages, we'll just simulate it by appending a new one syncronously.
+       */
+      appendMessage();
+      // After getting your messages.
+      if (!shouldScroll) {
+        scrollToBottom();
+      }
+    }
+    
+    function scrollToBottom() {
+      messages.scrollTop = messages.scrollHeight;
+    }
+    
+    scrollToBottom();
+    
+    setInterval(getMessages, 4000);
+</script>-->
