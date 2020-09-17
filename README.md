@@ -1,7 +1,7 @@
 # Context-Generative Chatbot
 Simple, accurate and portable chatbot trained off a corpus of conversations to respond to real-time queries. 
-*hfgh
-*gdgfd
+* dd
+* ju
 <ul>
 <li>Uses Tensorflow Deep Neural Network to model the script and have responses that will be available and vary based on context.</li>
 <li>For classification, regression analysis is used, backed by the modern RELU which minimizes backpropagation of errors.</li>
